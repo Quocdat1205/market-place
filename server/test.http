@@ -1,0 +1,12 @@
+GET http://localhost:5000
+
+###
+POST http://localhost:5000/api/market/v1/register
+Content-Type: application/json
+
+{
+    "email": "dat.nq@ttgvn.com",
+    "name": "Nguyen Quoc Dat",
+    "phone": "0949278320",
+    "add": "tphcm"
+}
