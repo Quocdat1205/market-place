@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/dotenv": "^8.2.0",
+    "argon2": "^0.28.2",
     "bcrypt": "^5.0.1",
     "connect-flash": "^0.1.1",
     "connect-timeout": "^1.9.0",
@@ -36,9 +37,11 @@
     "typeorm": "^0.2.38"
   },
   "devDependencies": {
+    "@types/connect-flash": "0.0.37",
     "@types/connect-timeout": "0.0.35",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/express-session": "^1.17.4",
     "@types/jsonwebtoken": "^8.5.5",
     "@types/node": "^16.11.6",
     "@types/nodemailer": "^6.4.4",

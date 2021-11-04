@@ -1,13 +1,19 @@
 import { Router } from "express";
 
 // import middleware
-import { RegisterRequest } from "../middleware/indexMiddleware";
+import {
+  RegisterRequest,
+  authToken,
+  authOtp,
+} from "../middleware/indexMiddleware";
 
 // import controller
-import { Register } from "../controllers/registerController";
+import { Register, AuthEmail } from "../controllers/registerController";
 
 const routerRegister = Router();
 
-routerRegister.post("/register", RegisterRequest, Register);
+routerRegister.post("/register", [RegisterRequest], Register);
+
+routerRegister.post("/authentication-email", [authToken, authOtp], AuthEmail);
 
 export default routerRegister;

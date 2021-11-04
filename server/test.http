@@ -8,5 +8,16 @@ Content-Type: application/json
     "email": "dat.nq@ttgvn.com",
     "name": "Nguyen Quoc Dat",
     "phone": "0949278320",
-    "add": "tphcm"
+    "add": "tphcm",
+    "pw": "123456",
+    "confirm_pw": "123456"
+}
+
+###
+POST http://localhost:5000/api/market/v1/authentication-email
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7Il9pZCI6Ijk3ZTE3NzFmLTkyNzMtNGI4ZC05YmEwLWYwZmNjNDgyNDQwOCIsImVtYWlsIjoiZGF0Lm5xQHR0Z3ZuLmNvbSJ9LCJpYXQiOjE2MzYwMTc3NDksImV4cCI6MTYzNjAxNzkyOX0.ZJGNqaHJ4vBSaIcGmG5klSyeXDn3w1-gMDK0VKZeEUo
+
+{
+    "otp": "419052"
 }
