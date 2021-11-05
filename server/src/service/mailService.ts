@@ -3,8 +3,6 @@ import constant from "../constant";
 
 const subject = "Hope all is well!";
 
-console.log(constant.SMTP_MAIL, constant.SMTP_PW);
-
 export default async function SendEmail(to: string, html: string) {
   var transporter = nodemailer.createTransport({
     service: "gmail",

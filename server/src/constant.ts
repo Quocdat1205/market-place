@@ -33,6 +33,7 @@ define("error_server", 500);
 define("not_implement", 501);
 define("algorithms", "HS256");
 define("secret", "shhhh");
+define("NODE_ENV", process.env.NODE_ENV);
 
 // mail
 define("SMTP_MAIL", process.env.SMTP_MAIL);
