@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "Hacked";
+    src: url("/fonts/HACKED.ttf");
+}
+
+@font-face {
+    font-family: "Brandon";
+    src: url("/fonts/BrandonGrotesque/main.otf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Mark Pro";
+    src: url("/fonts/MarkPro/MARKPRO-BOLD.OTF");
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Mark Pro";
+    src: url("/fonts/MarkPro/MARKPRO-MEDIUM.OTF");
+    font-style: normal;
+    font-weight: 500;
+}
+/* @font-face {
+    font-family: "Mark Pro";
+    src: url("/fonts/MarkPro/MARKPRO-MEDIUM.OTF");
+    font-style: normal;
+    font-weight: 600;
+} */
+@font-face {
+    font-family: "Mark Pro";
+    src: url("/fonts/MarkPro/MARKPRO-REGULAR.OTF");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Mark Pro";
+    src: url("/fonts/MarkPro/MARKPRO-LIGHT.OTF");
+    font-style: normal;
+    font-weight: 300;
+}
+
+html,
+body {
+    overflow: overlay;
+}
