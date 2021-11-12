@@ -8,12 +8,13 @@ import routerRegister from "./register";
 import loginRoute from "./login";
 
 function Routes(app: Router) {
-  app.get("/api/market/v1/test", (_req: Request, res: Response) => {
+  app.get("/api/market/v1/test", (req: Request, res: Response) => {
     logger.info("test route");
+    console.log(req.session);
     res.send("hello world");
   });
 
-  app.use("/api/market/v1/log-in", loginRoute);
+  app.use("/api/market/v1", loginRoute);
 
   app.use("/api/market/v1", routerRegister);
 

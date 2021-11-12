@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { getConnection } from "typeorm";
+import argon2 from "argon2";
 import {
   error_server,
   not_allow,
@@ -12,7 +13,10 @@ import SendEmail from "../service/mailService";
 import TemplateEmail from "../common/templateEmail";
 import { jwt_sign } from "../handler/jwtHandler";
 import logger from "../helper/logger.helper";
-import argon2 from "argon2";
+import {
+  CheckEmailExisting,
+  CheckUserExistingUseEmail,
+} from "../helper/checkExisting.helper";
 
 export async function Register(req: Request, res: Response) {
   try {
@@ -29,27 +33,14 @@ export async function Register(req: Request, res: Response) {
     /** check count request */
     // insert table checkmail, will block if email request > 5 but not authentication
 
-    let check_count_email = await getConnection()
-      .getRepository(CheckMail)
-      .createQueryBuilder("check_mail")
-      .where("check_mail.email = :email", {
-        email: email,
-      })
-      .getOne();
+    let check_count_email = await CheckEmailExisting(email);
 
     if (check_count_email && check_count_email.count >= 5) {
       return not_implement(res, "Email spam request, please try again");
     }
 
     // check user existing and account is active
-    const user = await connection
-      .getRepository(Customers)
-      .createQueryBuilder("user")
-      .where("user.email = :email AND user.is_active", {
-        email: email,
-        is_active: true,
-      })
-      .getOne();
+    const user = await CheckUserExistingUseEmail(email);
 
     if (user) {
       return not_allow(res, "Email existing");
@@ -76,6 +67,8 @@ export async function Register(req: Request, res: Response) {
     }
 
     // end check count request
+
+    // setup send email authentication
 
     let templateEmail = TemplateEmail(name, otp);
     SendEmail(email, templateEmail);

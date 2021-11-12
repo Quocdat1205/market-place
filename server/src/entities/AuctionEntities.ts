@@ -8,7 +8,7 @@ import {
 
 @Entity()
 export default class Auction {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("increment")
   id: number;
 
   @Column({ nullable: false })

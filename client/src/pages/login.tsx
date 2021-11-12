@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
-import TestForm from "../components/login/testForm";
 import Head from "next/head";
+import axios from "axios";
+import TestForm from "../components/login/testForm";
 
 const login = () => {
+  // test api
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/market/v1/test", {
+        withCredentials: true,
+      })
+      .then(({ data }) => {
+        console.log(data);
+      });
+  }, []);
+
   return (
     <Box>
       <Head>

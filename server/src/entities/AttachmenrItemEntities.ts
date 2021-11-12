@@ -8,7 +8,7 @@ import {
 
 @Entity()
 export default class AttachmentItem {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("increment")
   id: number;
 
   @Column({ nullable: false })

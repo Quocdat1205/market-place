@@ -20,19 +20,13 @@ export default class Items {
   name: string;
 
   @Column()
-  attachment: string;
-
-  @Column()
-  rarity: string;
-
-  @Column()
   price: string;
 
   @Column()
   description: String;
 
   @Column()
-  point: number;
+  _is_auction: boolean;
 
   @ManyToOne((_type) => Customers, (customer) => customer.items)
   customer: Customers[];
