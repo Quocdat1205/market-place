@@ -26,9 +26,12 @@ const upload = () => {
       withCredentials: true,
     };
 
-    console.log(formData);
     axios
-      .post(`${baseUri}/avt`, formData, config)
+      .post(
+        `http://localhost:5000/api/sipher/v1.1/post/upload`,
+        formData,
+        config
+      )
       .then((result) => {
         console.log(result);
       })
